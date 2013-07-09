@@ -131,7 +131,7 @@ function Candle(baseX, baseY, size) {
             this.feet[2] + x - 5, y - this.feet[3]  
         );
          var grad = ctx.createRadialGradient(canvas.width/2, canvas.height, 0
-            , canvas.width/2, canvas.height, candle.height());
+            , canvas.width/2, canvas.height, this.height());
         grad.addColorStop(0, 'rgb(256, 80, 20)');
         grad.addColorStop(1, 'rgba(256,256,0, 0.2)');
         ctx.fillStyle = grad;
@@ -141,8 +141,8 @@ function Candle(baseX, baseY, size) {
     
 }
 
-var candle;
 function main() {
+    var candle;
     var canvas = document.getElementById('candle-canvas');
     var ctx = canvas.getContext('2d');
     candle = new Candle();
