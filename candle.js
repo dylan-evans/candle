@@ -7,13 +7,16 @@ var console = console || {};
 console.log = (debug && console.log) ? console.log : function() {};
 
 /*
- * Candle class models the 
+ * Candle class models the flame shape.
  */
 function Candle(baseX, baseY, size) {
+    /** Utility function */
     function randrange(min, max) {
         var diff = max - min;
         return ((Math.random() * 1000000) % diff) + min;
     }
+
+    // Initialize the flame attributes
     this.randrange = randrange;
     // The tip of the flame
     this.head = [0, 200];
@@ -43,6 +46,9 @@ function Candle(baseX, baseY, size) {
         ];
     };
 
+    /**
+     * Advance the flame to the next frame.
+     */
     this.update = function() {
 
         this.head[1] = 350 - (this.waist[2] - this.waist[0]);
@@ -84,7 +90,14 @@ function Candle(baseX, baseY, size) {
             this.feet[2] + x, y - this.feet[3] 
         ];
     };
-
+    
+    /**
+     * Draw the flame on the given canvas.
+     * @param canvas The canvas to draw on.
+     * @param ctx The 2D context.
+     * @param x The horizotal base.
+     * @param y The vertical base.
+     */
     this.draw = function(canvas, ctx, x, y) {
         ctx.beginPath();
         ctx.moveTo(this.feet[0] + x, y - this.feet[1]);
@@ -140,6 +153,9 @@ function main() {
     var maxBreeze = 0;
     var breezeStrength = 2;
 
+    /**
+     * Update the animation.
+     */
     var update = function() {
         canvas.width = canvas.width;
         candle.update();
