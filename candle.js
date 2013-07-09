@@ -161,8 +161,6 @@ function main() {
         candle.update();
         candle.draw(canvas, ctx, canvas.width/2, canvas.height);
 
-        //boxBlurCanvasRGB('candle-canvas', map[2] - 10 , map[5] - 10, 
-        //    map[6] + 10, canvas.height, 5, 1);
         var r = Math.random();
         if(r < 0.05) {
             //maxBreeze = candle.randrange(-20, 20);
